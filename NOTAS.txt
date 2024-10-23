@@ -1,0 +1,33 @@
+LOS COMPONENTES SIEMPRE COMIENZAN CON MAYUSCULA
+LA APP DEBE SER RESPONSIVE
+npm run dev (corre los paquetes JSON)
+
+
+  "scripts": {
+
+     // LEVANTA EL PROYECTO //
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+
+
+npm i // Instala todas las dependencias del proyecto (package.json)
+npm unninstall nombre_libreria // Desinstala las librerias que estan en el package.json
+
+
+HOOKS
+useState // 
+
+useEffect // realiza un evento en base a
+   useEffect(() => {
+        console.log('hola');
+    }, [email]);
+
+
+        // Redireccionar pantallas, moverse entre la aplicacion
+        router.push("/home");
+        // Retroceder a la pagina anterior
+        router.back();
+        
