@@ -62,7 +62,7 @@ const Home: React.FC = () => {
             {hasRole('admin') && (
               <CardActions>
                 <Button size="small" color="primary">
-                  Editar
+                  Borrar
                 </Button>
               </CardActions>
             )}
