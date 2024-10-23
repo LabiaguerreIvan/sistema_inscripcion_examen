@@ -3,12 +3,32 @@ import React, { useEffect, useState } from 'react';
 import { TextField, Button, IconButton } from '@mui/material';
 import { WhatsApp, Instagram, Facebook } from '@mui/icons-material';
 import ButtonPrueba from '@/components/Button';
+import { useAuth } from '@/context/AuthContext';
+import { useRouter } from 'next/router';
+
 
 
 // COMPONENTE/PANTALLA DE REACT (LOGIN)
 const Login: React.FC = () => { // 'React.FC' typescrip declara que es un componente funcional
     const [email, setEmail] = useState<string>('');
     const [password, setPassword] = useState<string>('');
+    const router = useRouter();
+
+    const { login, user, hasRole, logout } = useAuth();
+
+    const handleLoginAsAdmin = () => {
+        // Simulamos un usuario admin logueado
+        const adminUser = { id: 1, name: 'Admin User', role: 'admin' };
+        login(adminUser);
+        router.push("/home")
+    };
+
+    const handleLoginAsAlumno = () => {
+        // Simulamos un usuario alumno logueado
+        const alumnoUser = { id: 2, name: 'Alumno User', role: 'alumno' };
+        login(alumnoUser);
+        router.push("/home")
+    };
 
 
     const handleSubmit = (e: React.FormEvent) => {
@@ -24,9 +44,9 @@ const Login: React.FC = () => { // 'React.FC' typescrip declara que es un compon
             <div className="flex flex-col lg:flex-row shadow-lg rounded-lg bg-white p-8">
                 {/* Left side image */}
                 <div className="hidden lg:flex items-center justify-center w-96 bg-white rounded-lg p-4">
-                    <img 
-                        src="https://www.lacademia.com.ar/logo.png" 
-                        alt="LACADEMIA" 
+                    <img
+                        src="https://www.lacademia.com.ar/logo.png"
+                        alt="LACADEMIA"
                         className="rounded-lg"
                     />
                 </div>
@@ -60,7 +80,7 @@ const Login: React.FC = () => { // 'React.FC' typescrip declara que es un compon
                         />
                     </div>
 
-                    <Button type="button" variant="contained" color="primary" fullWidth onClick={handleSubmit}>
+                    <Button type="button" variant="contained" color="primary" fullWidth onClick={handleLoginAsAdmin}>
                         Ingresar
                     </Button>
                     <hr />
